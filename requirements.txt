@@ -7,3 +7,4 @@ pydantic
 pandas
 numpy
 scikit-survival
+gunicorn
