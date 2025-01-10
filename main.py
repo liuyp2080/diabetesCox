@@ -7,7 +7,7 @@ import uvicorn
 import os
 import pandas as pd
 import numpy as np
-import gunicorn
+
 #from dotenv import load_dotenv
 
 # load_dotenv()
@@ -56,8 +56,5 @@ def diabetes_pred_proba(input_parameters:model_input,time: int):
         return '该患者在{}年内患糖尿病的概率是{}%'.format(time,result)
         
     
-
-if __name__ == '__main__':
-    gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app
     
     
