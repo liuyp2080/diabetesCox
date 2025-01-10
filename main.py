@@ -7,6 +7,7 @@ import uvicorn
 import os
 import pandas as pd
 import numpy as np
+import gunicorn
 #from dotenv import load_dotenv
 
 # load_dotenv()
@@ -57,6 +58,6 @@ def diabetes_pred_proba(input_parameters:model_input,time: int):
     
 
 if __name__ == '__main__':
-    uvicorn.run(app="main:app", host="127.0.0.1", port=8000)
+    gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b 0.0.0.0:8000 main:app
     
     
